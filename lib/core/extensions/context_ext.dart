@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/breakpoints.dart';
+
 extension ContextExt on BuildContext {
   double get bottomPadding => MediaQuery.of(this).viewInsets.bottom;
 
@@ -7,9 +9,9 @@ extension ContextExt on BuildContext {
 
   double get height => MediaQuery.sizeOf(this).height;
 
-  bool get isMobile => width <= 600;
+  bool get isMobile => width <= Breakpoints.mobile;
 
-  bool get isTablet => width > 600 && width < 840;
+  bool get isTablet => width > Breakpoints.mobile && width < Breakpoints.tablet;
 
-  bool get isDesktop => width >= 1200;
+  bool get isDesktop => width >= Breakpoints.desktop;
 }

@@ -12,12 +12,11 @@ class HomeView extends StatelessWidget {
         mobile: Padding(
           padding: .all(16.h),
           child: Column(
-            spacing: 16,
+            spacing: 16.h,
             children: [
               Text('Mobile View', style: TextStyle(fontSize: 16.sp)),
               TextFormField(),
               TextFormField(),
-              SizedBox(height: 16),
               FractionallySizedBox(
                 widthFactor: 1,
                 child: ElevatedButton(
@@ -34,13 +33,12 @@ class HomeView extends StatelessWidget {
         tablet: Padding(
           padding: .all(16.h),
           child: Column(
-            spacing: 16,
+            spacing: 16.h,
             children: [
               Text('Tablet View', style: TextStyle(fontSize: 16.sp)),
-              FlutterLogo(size: 100),
+              FlutterLogo(size: 100.r),
               TextFormField(),
               TextFormField(),
-              SizedBox(height: 16),
               FractionallySizedBox(
                 widthFactor: 1,
                 child: ElevatedButton(
@@ -64,7 +62,7 @@ class HomeView extends StatelessWidget {
                   mainAxisAlignment: .center,
                   children: [
                     Text('Desktop View', style: TextStyle(fontSize: 16.sp)),
-                    FlutterLogo(size: 100),
+                    FlutterLogo(size: 100.r),
                   ],
                 ),
               ),
@@ -72,11 +70,10 @@ class HomeView extends StatelessWidget {
                 flex: 2,
                 child: Column(
                   mainAxisAlignment: .center,
-                  spacing: 16,
+                  spacing: 16.h,
                   children: [
                     TextFormField(),
                     TextFormField(),
-                    SizedBox(height: 16),
                     FractionallySizedBox(
                       widthFactor: 1,
                       child: ElevatedButton(

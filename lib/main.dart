@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/constants/breakpoints.dart';
 import 'views/home_view.dart';
 
 Future<void> main() async {
@@ -18,9 +19,9 @@ class MyApp extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final Size designSize;
-        if (constraints.maxWidth >= 1024) {
+        if (constraints.maxWidth >= Breakpoints.desktop) {
           designSize = const Size(1440, 1024);
-        } else if (constraints.maxWidth >= 600) {
+        } else if (constraints.maxWidth >= Breakpoints.tablet) {
           designSize = const Size(768, 1024);
         } else {
           designSize = const Size(375, 812);
