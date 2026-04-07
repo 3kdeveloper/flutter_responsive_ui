@@ -15,15 +15,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     debugPrint('MyApp Rebuild');
-    return ScreenUtilInit(
-      designSize: const Size(375, 812),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (_, child) => MaterialApp(
-        title: 'Explore Responsiveness',
-        debugShowCheckedModeBanner: false,
-        home: const HomeView(),
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final Size designSize;
+        if (constraints.maxWidth >= 1024) {
+          designSize = const Size(1440, 1024);
+        } else if (constraints.maxWidth >= 600) {
+          designSize = const Size(768, 1024);
+        } else {
+          designSize = const Size(375, 812);
+        }
+        return ScreenUtilInit(
+          designSize: designSize,
+          minTextAdapt: true,
+          splitScreenMode: true,
+          builder: (_, child) => MaterialApp(
+            title: 'Explore Responsiveness',
+            debugShowCheckedModeBanner: false,
+            home: const HomeView(),
+          ),
+        );
+      },
     );
   }
 }
