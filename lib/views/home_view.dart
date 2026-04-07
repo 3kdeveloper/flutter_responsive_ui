@@ -10,7 +10,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: ResponsiveWidget(
         mobile: Padding(
-          padding: const .all(16),
+          padding: .all(16.h),
           child: Column(
             spacing: 16,
             children: [
@@ -22,6 +22,9 @@ class HomeView extends StatelessWidget {
                 widthFactor: 1,
                 child: ElevatedButton(
                   onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(vertical: 12.h),
+                  ),
                   child: Text('Login', style: TextStyle(fontSize: 12.sp)),
                 ),
               ),
@@ -29,7 +32,7 @@ class HomeView extends StatelessWidget {
           ),
         ),
         tablet: Padding(
-          padding: const .all(20),
+          padding: .all(16.h),
           child: Column(
             spacing: 16,
             children: [
@@ -42,6 +45,9 @@ class HomeView extends StatelessWidget {
                 widthFactor: 1,
                 child: ElevatedButton(
                   onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(vertical: 12.h),
+                  ),
                   child: Text('Login', style: TextStyle(fontSize: 12.sp)),
                 ),
               ),
@@ -49,7 +55,7 @@ class HomeView extends StatelessWidget {
           ),
         ),
         desktop: Padding(
-          padding: const .all(24),
+          padding: .all(16.h),
           child: Row(
             children: [
               Expanded(
@@ -75,6 +81,9 @@ class HomeView extends StatelessWidget {
                       widthFactor: 1,
                       child: ElevatedButton(
                         onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(vertical: 16.h),
+                        ),
                         child: Text('Login', style: TextStyle(fontSize: 12.sp)),
                       ),
                     ),
