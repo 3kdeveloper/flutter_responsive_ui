@@ -30,6 +30,10 @@ class MyApp extends StatelessWidget {
           designSize: designSize,
           minTextAdapt: true,
           splitScreenMode: true,
+
+          /// Clamp scale factor so it never goes wild on large screens
+          // fontSizeResolver: (fontSize, instance) =>
+          //     fontSize * instance.scaleWidth.clamp(0.85, 1.2),
           builder: (_, child) => MaterialApp(
             title: 'Explore Responsiveness',
             debugShowCheckedModeBanner: false,

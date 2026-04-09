@@ -7,16 +7,70 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('build Called');
     return Scaffold(
       body: ResponsiveWidget(
-        mobile: Padding(
-          padding: .all(16.h),
+        mobile: RPadding(
+          padding: REdgeInsets.all(16.r),
           child: Column(
             spacing: 16.h,
             children: [
               Text('Mobile View', style: TextStyle(fontSize: 16.sp)),
               TextFormField(),
               TextFormField(),
+              ConstantWidget(),
+              Row(
+                children: [
+                  SizedBox(
+                    height: 40,
+                    width: 100,
+                    child: Container(
+                      color: Colors.yellow,
+                      alignment: .center,
+                      child: Text(
+                        'Width: ${ScreenUtil().scaleWidth.toStringAsFixed(2)}',
+                        style: TextStyle(fontSize: 12.sp),
+                      ),
+                    ),
+                  ),
+
+                  RSizedBox(
+                    height: 40,
+                    width: 100,
+                    child: Container(
+                      color: Colors.red,
+                      alignment: .center,
+                      child: Text(
+                        'Width: ${ScreenUtil().scaleWidth.toStringAsFixed(2)}',
+                        style: TextStyle(fontSize: 12.sp),
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 40.h,
+                    width: 100.w,
+                    child: Container(
+                      color: Colors.green,
+                      alignment: .center,
+                      child: Text(
+                        'Width: ${ScreenUtil().scaleWidth.toStringAsFixed(2)}',
+                        style: TextStyle(fontSize: 12.sp),
+                      ),
+                    ),
+                  ),
+
+                  // RSizedBox(
+                  //   height: 40.h,
+                  //   width: 100.w,
+                  //   child: ColoredBox(
+                  //     color: Colors.black,
+                  //     // alignment: .center,
+                  //     // child: Text('Height: ${ScreenUtil().scaleHeight}'),
+                  //   ),
+                  // ),
+                ],
+              ),
               FractionallySizedBox(
                 widthFactor: 1,
                 child: ElevatedButton(
@@ -61,7 +115,7 @@ class HomeView extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: .center,
                   children: [
-                    Text('Desktop View', style: TextStyle(fontSize: 16.sp)),
+                    Text('Desktop View', style: TextStyle(fontSize: 24.sp)),
                     FlutterLogo(size: 100.r),
                   ],
                 ),
@@ -92,5 +146,16 @@ class HomeView extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class ConstantWidget extends StatelessWidget {
+  const ConstantWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    /// Only prints once on app launch
+    print("ConstantWidget Build Called!");
+    return const Text("I am a constant widget");
   }
 }
