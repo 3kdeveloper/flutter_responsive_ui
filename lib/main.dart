@@ -21,11 +21,17 @@ class MyApp extends StatelessWidget {
         final Size designSize;
         if (constraints.maxWidth >= Breakpoints.desktop) {
           designSize = const Size(1440, 1024);
-        } else if (constraints.maxWidth >= Breakpoints.tablet) {
+        } else if (constraints.maxWidth > Breakpoints.mobile &&
+            constraints.maxWidth < Breakpoints.tablet) {
           designSize = const Size(768, 1024);
         } else {
           designSize = const Size(375, 812);
         }
+
+        debugPrint(
+          '${constraints.maxWidth} >= ${Breakpoints.tablet} Design Size: ${designSize.toString()}',
+        );
+
         return ScreenUtilInit(
           designSize: designSize,
           minTextAdapt: true,
@@ -33,7 +39,7 @@ class MyApp extends StatelessWidget {
 
           /// Clamp scale factor so it never goes wild on large screens
           // fontSizeResolver: (fontSize, instance) =>
-          //     fontSize * instance.scaleWidth.clamp(0.85, 1.2),
+          //     fontSize * instance.scaleWidth.clamp(0.85, 2),
           builder: (_, child) => MaterialApp(
             title: 'Explore Responsiveness',
             debugShowCheckedModeBanner: false,
