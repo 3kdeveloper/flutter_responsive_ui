@@ -1,6 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart' hide DeviceType;
 
 import 'core/constants/breakpoints.dart';
 import 'views/home_view.dart';
@@ -19,17 +19,25 @@ class MyApp extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final Size designSize;
-        if (constraints.maxWidth >= Breakpoints.desktop) {
-          designSize = const Size(1440, 1024);
-        } else if (constraints.maxWidth > Breakpoints.mobile &&
-            constraints.maxWidth < Breakpoints.tablet) {
-          designSize = const Size(768, 1024);
-        } else {
+        final DeviceType deviceType;
+        final isMobile = constraints.maxWidth <= Breakpoints.mobile;
+        final isTablet =
+            constraints.maxWidth > Breakpoints.mobile &&
+            constraints.maxWidth < Breakpoints.tablet;
+
+        if (isMobile) {
           designSize = const Size(375, 812);
+          deviceType = .phone;
+        } else if (isTablet) {
+          designSize = const Size(768, 1024);
+          deviceType = .tablet;
+        } else {
+          designSize = const Size(1440, 1024);
+          deviceType = .desktop;
         }
 
         debugPrint(
-          '${constraints.maxWidth} >= ${Breakpoints.tablet} Design Size: ${designSize.toString()}',
+          '$deviceType ${constraints.maxWidth} >= ${Breakpoints.tablet} Design Size: ${designSize.toString()}',
         );
 
         return ScreenUtilInit(

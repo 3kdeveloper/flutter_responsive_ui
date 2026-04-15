@@ -21,7 +21,7 @@ class HomeView extends StatelessWidget {
               ConstantWidget(),
               Row(
                 children: [
-                  SizedBox(
+                  RSizedBox(
                     height: 40,
                     width: 100,
                     child: Container(
@@ -89,7 +89,7 @@ class HomeView extends StatelessWidget {
           child: Column(
             spacing: 16.h,
             children: [
-              Text('Tablet View', style: TextStyle(fontSize: 16.sp)),
+              Text('Tablet View', style: TextStyle(fontSize: 24.sp)),
               FlutterLogo(size: 100.r),
               TextFormField(),
               TextFormField(),
@@ -115,7 +115,7 @@ class HomeView extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: .center,
                   children: [
-                    Text('Desktop View', style: TextStyle(fontSize: 24.sp)),
+                    Text('Desktop View', style: TextStyle(fontSize: 32.sp)),
                     FlutterLogo(size: 100.r),
                   ],
                 ),
