@@ -19,6 +19,7 @@ enum DeviceType {
   desktop;
 
   Size get designSize => switch (this) {
+    ///! TODO: Update design size as per your layout.
     .mobile => const Size(375, 812),
     .tablet => const Size(768, 1024),
     .desktop => const Size(1440, 1024),
