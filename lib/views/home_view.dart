@@ -19,6 +19,10 @@ class HomeView extends StatelessWidget {
             ElevatedButton(onPressed: () {}, child: Text('Sizer')),
             ElevatedButton(onPressed: () {}, child: Text('Responsive Scaler')),
             ElevatedButton(onPressed: () {}, child: Text('Flutter ScreenUtil')),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text('Flutter Screen Responsive'),
+            ),
             ElevatedButton(onPressed: () {}, child: Text('Manual Scaling')),
           ],
         ),
